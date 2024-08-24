@@ -31,7 +31,7 @@ wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O 
 <details>
   <summary>Script output Formatted</summary>
 
-[![Warp Block](https://via.placeholder.com/922x1347)](https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt)
+[View Warp Block](https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt)
 
 </details>
 
