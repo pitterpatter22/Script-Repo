@@ -30,10 +30,19 @@ OR
 wget https://scripts.pitterpatter.io/master.sh && bash master.sh
 ```
 
+Select the script called `Testing/test.sh`
+
+<details>
+  <summary>Script Selection Picture</summary>
+  
+![Script Output](https://scripts.pitterpatter.io/example_script_choice.png)  
+
+</details>
+
 <details>
   <summary>Script Output Picture</summary>
   
-![Script Output](Example.png)  
+![Script Output](https://scripts.pitterpatter.io/example_output.png)  
 
 </details>
 
