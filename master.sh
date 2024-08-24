@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Run this script with:
-# wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O master.sh && bash master.sh
+# wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O master.sh && sudo bash master.sh
 
-this_script_url="https://github.com/seanssmith/Script-Repo"
+this_script_url="https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh"
 this_script_name="Master Script Repo"
 formatter_url="https://raw.githubusercontent.com/seanssmith/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 

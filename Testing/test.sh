@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Run this script with:
-# wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/script-template.sh --no-check-certificate && sudo bash script-template.sh
+# wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/Testing/test.sh --no-check-certificate && sudo bash script-template.sh
 
 
 #-----------------------------------#
 #             VARIABLES             #
 #-----------------------------------#
 
-this_script_url="https://raw.githubusercontent.com/seanssmith/Script-Repo/main/script-template.sh"
-this_script_name="TEMPLATE"
+this_script_url="https://raw.githubusercontent.com/seanssmith/Script-Repo/main/Testing/test.sh"
+this_script_name="Test Script"
 formatter_url="https://raw.githubusercontent.com/seanssmith/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 scriptname=$0
 
@@ -30,6 +30,7 @@ if [ ! -f "task_formatter.sh" ]; then
 fi
 
 source ./task_formatter.sh
+
 
 #-----------------------------------#
 #             FUNCTIONS             #

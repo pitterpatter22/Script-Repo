@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Run this script with:
-# wget https://git.smithserver.app/homelab/scripts/-/raw/main/lxc-setup.sh --no-check-certificate && sudo bash lxc-setup.sh
+# wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/Bootstrap%20Scripts/lxc-bootstrap.sh --no-check-certificate && sudo bash lxc-bootstrap.sh
 
 
 #-----------------------------------#
 #             VARIABLES             #
 #-----------------------------------#
 
-this_script_url="https://github.com/seanssmith/Script-Repo/Bootstrap_Scripts/lxc-bootstrap.sh"
+this_script_url="https://raw.githubusercontent.com/seanssmith/Script-Repo/main/Bootstrap%20Scripts/lxc-bootstrap.sh"
 this_script_name="LXC Bootstrapper"
 formatter_url="https://raw.githubusercontent.com/seanssmith/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 scriptname=$0
@@ -24,10 +24,12 @@ USER_HOME=$(eval echo ~$USER_TO_RUN_AS)
 #-----------------------------------#
 #             FORMATTER             #
 #-----------------------------------#
-wget $formatter_url --no-check-certificate -O task_formatter.sh > /dev/null 2>&1
+
+if [ ! -f "task_formatter.sh" ]; then
+    wget $formatter_url --no-check-certificate -O task_formatter.sh > /dev/null 2>&1
+fi
+
 source ./task_formatter.sh
-
-
 
 #-----------------------------------#
 #             FUNCTIONS             #
