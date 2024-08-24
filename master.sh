@@ -9,6 +9,7 @@ this_script_name="Master Script Repo"
 formatter_url="https://raw.githubusercontent.com/seanssmith/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 BRANCH="main"  # or whatever branch you are using
 
+
 # Trap to clean up script on exit or interruption
 trap remove_script EXIT
 
@@ -108,4 +109,60 @@ run_script() {
         chmod +x "/tmp/$script_path"
         sudo bash "/tmp/$script_path" "$ORIGINAL_USER"
     else
-        echo -e "${CROSS_MARK} Failed to download script"
+        echo -e "${CROSS_MARK} Failed to download script: $script_name (HTTP status code: $http_status)"
+    fi
+}
+
+# Main function to run selected scripts
+run_scripts() {
+    printf "${COLOR_GREEN}Fetching list of available scripts from GitHub repository...${COLOR_RESET}\n"
+    scripts=$(fetch_scripts)
+
+    if [ -z "$scripts" ]; then
+        printf "${COLOR_RED}No scripts found in the repository.${COLOR_RESET}\n"
+        exit 1
+    fi
+
+    while true; do
+        printf "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}\n"
+        select script in $scripts "Quit"; do
+            if [ "$script" == "Quit" ]; then
+                break 2
+            elif [ -n "$script" ]; then
+                printf "${COLOR_BLUE}You selected $script. Running script...${COLOR_RESET}\n"
+                run_script "$script"
+                break
+            else
+                printf "${COLOR_RED}Invalid selection. Please try again.${COLOR_RESET}\n"
+            fi
+        done
+
+        printf "${COLOR_BLUE}Would you like to run more scripts? (y/n)${COLOR_RESET}\n"
+        read -r choice
+        if [[ "$choice" != "y" ]]; then
+            break
+        fi
+    done
+}
+
+# Main script logic
+clear
+
+verbose="false"
+if [[ "$1" == "-v" ]]; then
+    verbose="true"
+fi
+
+print_header "$this_script_name" "$this_script_url"
+
+success=0
+install_sudo
+install_curl
+install_jq
+run_scripts
+
+cleanup_tmp_files
+remove_script
+
+final_message "$this_script_name" $success
+exit $success
