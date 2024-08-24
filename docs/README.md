@@ -1,12 +1,10 @@
 # Master Script Repository
 
-
-[Repo Link](https://github.com/pitterpatter22/Script-Repo)
-
-
 This repository contains the `master.sh` script, designed to simplify the execution of other scripts stored in a GitHub repository. The `master.sh` script automatically fetches a list of available scripts, allows you to select and run them, and handles dependencies and cleanup. This guide explains how to use the `master.sh` script, its key features, and how to contribute.
 
 The goal of the repo is to make is as simple as possible to run scripts that are stored in a GitHub Repo.
+
+** For ease of access, the link `https://scripts.pitterpatter.io/master.sh` can be used to get `master.sh` **
 
 ## Table of Contents
 
@@ -24,6 +22,10 @@ The goal of the repo is to make is as simple as possible to run scripts that are
 
 ```bash
 wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
+
+OR
+
+wget https://scripts.pitterpatter.io/master.sh && bash master.sh
 ```
 
 <details>
@@ -49,6 +51,10 @@ To use the `master.sh` script, run the following command:
 
 ```bash
 wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
+
+OR
+
+wget https://scripts.pitterpatter.io/master.sh && bash master.sh
 ```
 
 
