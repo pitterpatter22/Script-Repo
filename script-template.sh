@@ -48,7 +48,10 @@ update_upgrade_packages() {
 
 # remove artifacts
 remove_script() {
-    rm -- "$0"
+    if [ -f "$0" ]; then
+        echo "Deleted master script..."
+        rm -- "$0"
+    fi
     if [ -f "task_formatter.sh" ]; then
         rm task_formatter.sh
     fi

@@ -73,15 +73,18 @@ install_jq() {
 cleanup_tmp_files() {
     echo "Cleaning up temporary files..."
     sudo rm -rf /tmp/github.com/seanssmith/Script-Repo*
-    echo "Temporary files cleaned."
+    echo -e "Temporary files cleaned $CHECK_MARK"
 }
 
 remove_script() {
-    echo "Deleted master script..."
-    rm -- "$0"
+    if [ -f "$0" ]; then
+        echo "Deleted master script..."
+        rm -- "$0"
+    fi
     if [ -f "task_formatter.sh" ]; then
         rm task_formatter.sh
     fi
+    echo -e "Cleaned up $CHECK_MARK"
 }
 
 # Function to fetch the list of scripts from the GitHub repository
@@ -128,6 +131,7 @@ run_scripts() {
 
     if [ -z "$scripts" ]; then
         printf "${COLOR_RED}No scripts found in the repository.${COLOR_RESET}\n"
+        format_output remove_script "Cleaning up"
         exit 1
     fi
 

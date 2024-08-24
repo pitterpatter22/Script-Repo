@@ -49,7 +49,10 @@ update_upgrade_packages() {
 
 # remove artifacts
 remove_script() {
-    rm -- "$0"
+    if [ -f "$0" ]; then
+        echo "Deleted master script..."
+        rm -- "$0"
+    fi
     if [ -f "task_formatter.sh" ]; then
         rm task_formatter.sh
     fi
@@ -58,7 +61,7 @@ remove_script() {
 
 # Remove created files on Failure
 cleanup_files() {
-
+    echo -e "Cleaned up $CHECK_MARK"
 }
 
 
@@ -93,7 +96,7 @@ fi
 # Print header
 print_header "$this_script_name" "$this_script_url"
 
-echo -e "Installing as User: $USER_TO_RUN_AS\nUser Home: $USER_HOME\n"
+echo -e "Running as User: $USER_TO_RUN_AS\nUser Home: $USER_HOME\n"
 
 
 # Run the functions with formatted output
