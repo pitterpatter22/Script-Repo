@@ -30,7 +30,9 @@ wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O 
 
 <details>
   <summary>Script output Formatted</summary>
-  <iframe src="https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt" title="embedded warp block" style="width: 922px; height: 1347px; border:0; overflow:hidden;" allow="clipboard-read; clipboard-write"></iframe>
+
+[![Warp Block](https://via.placeholder.com/922x1347)](https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt)
+
 </details>
 
 <details>
