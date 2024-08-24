@@ -30,6 +30,7 @@ wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O 
 
 <details>
   <summary>Script Output</summary>
+  
 ```bash
 Fetching list of available scripts from GitHub repository...
 
@@ -70,7 +71,9 @@ Test Script encountered errors!
 Script interrupted or an error occurred
 Would you like to run more scripts? (y/n)
 n
+
 ```
+
 </details>
 
 ### Running with Verbose Output
