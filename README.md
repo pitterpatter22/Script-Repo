@@ -1,6 +1,8 @@
 # Master Script Repository
 
-This repository contains the `master.sh` script, designed to simplify the execution of other scripts stored in this repository. The `master.sh` script automatically fetches a list of available scripts, allows you to select and run them, and handles dependencies and cleanup. This guide explains how to use the `master.sh` script, its key features, and how to contribute.
+This repository contains the `master.sh` script, designed to simplify the execution of other scripts stored in a GitHub repository. The `master.sh` script automatically fetches a list of available scripts, allows you to select and run them, and handles dependencies and cleanup. This guide explains how to use the `master.sh` script, its key features, and how to contribute.
+
+The goal of the repo is to make is as simple as possible to run scripts that are stored in a GitHub Repo.
 
 ## Table of Contents
 
@@ -39,19 +41,21 @@ bash master.sh -v
 
 - Automatic Dependency Installation: Ensures that required tools like sudo, curl, and jq are installed before proceeding.
 - Script Fetching and Execution: Automatically retrieves available scripts from the repository and allows for easy selection and execution.
-- Verbose Mode: Use the -v flag to enable detailed logging during script execution.
+- Verbose Mode: Use the `-v` flag to enable detailed logging during script execution.
 - Error Handling: Built-in error handling ensures that the script exits gracefully and provides informative error messages.
 - Cleanup: Automatically removes temporary files and the script itself after execution.
 
 
 ## Dependencies
 
-The master.sh script relies on the following tools:
+The `master.sh` script relies on the following tools:
 
 - `sudo`: Ensures elevated permissions for installing packages and running scripts.
 - `curl`: Used to fetch the list of scripts and download individual scripts.
 - `jq`: Parses JSON responses from GitHub API.
 If any of these tools are not installed, the script will attempt to install them automatically.
+
+The script also uses `task_formatter.sh`, which can be found at the [TaskFormatter Repo](https://github.com/seanssmith/TaskFormatter/blob/main/bash_task_formatter/task_formatter.sh), to format the output of the master script in a better looking way. 
 
 ## Error Handling
 
@@ -60,12 +64,13 @@ The script includes robust error handling mechanisms:
 - Command Failures: If a command fails (e.g., network issues, missing dependencies), the script will output an error message and exit.
 - Invalid Script Selection: If an invalid selection is made, the script will prompt you to try again.
 - HTTP Status Codes: When downloading a script, the script checks the HTTP status code and provides feedback if the download fails.
-- Cleanup
+
+## Cleanup
 
 After running the selected script(s), the master.sh script performs the following cleanup actions:
 
 - Temporary Files: Removes any temporary files created during script execution.
-- Self-Removal: Deletes the master.sh script itself and the task_formatter.sh script used for output formatting.
+- Self-Removal: Deletes the `master.sh` script itself and the `task_formatter.sh` script used for output formatting.
 - These actions ensure that your system remains clean after script execution.
 
 ## Contributing
@@ -80,11 +85,11 @@ We welcome contributions to this repository! To contribute:
 To add a new script to the repository:
 
 1. Add your script to the repository, ensuring it follows the naming convention (.sh extension).
-2. Ensure the script is executable (chmod +x script_name.sh).
+2. Ensure the script is executable (`chmod +x script_name.sh`).
 3. Submit a pull request with your new script.
 
 ## Reporting Issues
-If you encounter any issues with the master.sh script, please open an issue in this repository, providing details about the problem and any relevant logs or error messages.
+If you encounter any issues with the `master.sh` script, please open an issue in this repository, providing details about the problem and any relevant logs or error messages.
 
 ## License
 
