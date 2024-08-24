@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Run this script with:
-# wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/Installs/script-template.sh --no-check-certificate && sudo bash script-template.sh
+# wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/update-apt.sh --no-check-certificate && sudo bash script-template.sh
 
 
 #-----------------------------------#
 #             VARIABLES             #
 #-----------------------------------#
 
-this_script_url="https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/Installs/script-template.sh"
-this_script_name="TEMPLATE"
+this_script_url="https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/Installs/update-apt.sh"
+this_script_name="Update Apt Packages"
 formatter_url="https://raw.githubusercontent.com/pitterpatter22/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 scriptname=$0
 
@@ -60,37 +60,14 @@ remove_script() {
 
 # Remove created files on Failure
 cleanup_files() {
-    echo -e "Cleaned up $CHECK_MARK"
+    echo "No Cleanup Needed"
+    echo -e "Done $CHECK_MARK"
 }
 
 
 #-----------------------------------#
 #             MAIN LOGIC            #
 #-----------------------------------#
-
-'''
-Run functions with this format:
-
-    format_output {function_name} "Function Description"
-
-    Example:
-        
-        format_output update_upgrade_packages "Update and Upgrade Packages"
-
-
-To add in success monitoring when script is run from master.sh, run like this:
-
-if ! format_output {function_name} "Function Description"; then
-    cleanup_files
-    success=1
-fi
-
-if ! format_output {function_name} "Function Description"; then
-    cleanup_files
-    success=1
-fi
-
-'''
 
 # Print header
 print_header "$this_script_name" "$this_script_url"
