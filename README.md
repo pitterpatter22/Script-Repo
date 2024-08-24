@@ -1,6 +1,8 @@
 # Master Script Repository
 
+
 [Repo Link](https://github.com/pitterpatter22/Script-Repo)
+
 
 This repository contains the `master.sh` script, designed to simplify the execution of other scripts stored in a GitHub repository. The `master.sh` script automatically fetches a list of available scripts, allows you to select and run them, and handles dependencies and cleanup. This guide explains how to use the `master.sh` script, its key features, and how to contribute.
 
