@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Run this script with:
-# wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/Bootstrap%20Scripts/lxc-bootstrap.sh --no-check-certificate && sudo bash lxc-bootstrap.sh
+# wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/Bootstrap%20Scripts/lxc-bootstrap.sh --no-check-certificate && sudo bash lxc-bootstrap.sh
 
 
 #-----------------------------------#
 #             VARIABLES             #
 #-----------------------------------#
 
-this_script_url="https://raw.githubusercontent.com/seanssmith/Script-Repo/main/Bootstrap%20Scripts/lxc-bootstrap.sh"
+this_script_url="https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/Bootstrap%20Scripts/lxc-bootstrap.sh"
 this_script_name="LXC Bootstrapper"
-formatter_url="https://raw.githubusercontent.com/seanssmith/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
+formatter_url="https://raw.githubusercontent.com/pitterpatter22/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 scriptname=$0
 
 # Initialize success flag

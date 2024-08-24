@@ -19,13 +19,13 @@ The goal of the repo is to make is as simple as possible to run scripts that are
 To use the `master.sh` script, run the following command:
 
 ```bash
-wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O master.sh && bash master.sh
+wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
 ```
 
 ### Example
 
 ```bash
-wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O master.sh && bash master.sh
+wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
 ```
 
 <details>
@@ -116,7 +116,7 @@ The `master.sh` script relies on the following tools:
 - `jq`: Parses JSON responses from GitHub API.
 If any of these tools are not installed, the script will attempt to install them automatically.
 
-The script also uses `task_formatter.sh`, which can be found at the [TaskFormatter Repo](https://github.com/seanssmith/TaskFormatter/blob/main/bash_task_formatter/task_formatter.sh), to format the output of the master script in a better looking way. 
+The script also uses `task_formatter.sh`, which can be found at the [TaskFormatter Repo](https://github.com/pitterpatter22/TaskFormatter/blob/main/bash_task_formatter/task_formatter.sh), to format the output of the master script in a better looking way. 
 
 ## Error Handling
 
