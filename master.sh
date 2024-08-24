@@ -21,6 +21,9 @@ else
     ORIGINAL_USER=$(whoami)
 fi
 
+# Ensure that remove_script runs on script exit or interruption
+trap remove_script EXIT
+
 # Function to check and install sudo if not present
 install_sudo() {
     if ! command which sudo &> /dev/null; then
@@ -83,8 +86,8 @@ remove_script() {
 
 # Function to fetch the list of scripts from the GitHub repository
 fetch_scripts() {
-    scripts_recursive=$(curl -s "https://api.github.com/repos/seanssmith/Script-Repo/git/trees/$BRANCH?recursive=1" | jq -r '.tree[] | select(.type == "blob" and (.path | type == "string") and (.path | endswith(".sh"))) | .path')
-    scripts_root=$(curl -s "https://api.github.com/repos/seanssmith/Script-Repo/contents?ref=$BRANCH" | jq -r '.[] | select(.type == "file" and (.name | type == "string") and (.name | endswith(".sh"))) | .path')
+    scripts_recursive=$(curl -s "https://api.github.com/repos/seanssmith/Script-Repo/git/trees/$BRANCH?recursive=1" | jq -r '.tree[] | select(.type == "blob" and (.path | type == "string") and (.path | endswith(".sh"))?) | .path')
+    scripts_root=$(curl -s "https://api.github.com/repos/seanssmith/Script-Repo/contents?ref=$BRANCH" | jq -r '.[] | select(.type == "file" and (.name | type == "string") and (.name | endswith(".sh"))?) | .path')
     echo -e "$scripts_root\n$scripts_recursive" | sort -u
 }
 
