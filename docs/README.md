@@ -40,50 +40,9 @@ wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh
 </details>
 
 <details>
-  <summary>Script Output as text</summary>
+  <summary>Script Output Picture</summary>
   
-```bash
-Fetching list of available scripts from GitHub repository...
-
-Available scripts:
-1) Bootstrap		     3) Testing/test.sh		  5) script-template.sh
-2) Scripts/lxc-bootstrap.sh  4) master.sh		  6) Quit
-#? 3
-
-Function: Example Function 1 - Status: Finished ✔
-Output:
-This is example function 1. ✔
-
-Function: Example Function 2 - Status: Finished ✔
-Output:
-This is example function 2.
-Done ✔
-
-Function: Example Function 3 - Status: Error ✘
-Output:
-This is example function 3 and it will fail. ✘
-
-Cleaned up ✔
-Function: Test Reconfiguring - Status: Running...
-Question? (y/n): t
-Invalid choice.
-Question? (y/n): y
-Function: Test Reconfiguring - Status: Finished ✔
-
-Function: Cleaning up - Status: Finished ✔
-Output:
-Deleted master script...
-Cleaned up ✔
-
-
-Test Script encountered errors!
-
-
-Script interrupted or an error occurred
-Would you like to run more scripts? (y/n)
-n
-
-```
+![Script Output](Example.png)  
 
 </details>
 
