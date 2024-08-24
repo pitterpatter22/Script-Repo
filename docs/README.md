@@ -22,9 +22,11 @@ The goal of the repo is to make is as simple as possible to run scripts that are
 
 ```bash
 wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
+```
 
 OR
 
+```bash
 wget https://scripts.pitterpatter.io/master.sh && bash master.sh
 ```
 
@@ -51,9 +53,11 @@ To use the `master.sh` script, run the following command:
 
 ```bash
 wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
+```
 
 OR
 
+```bash
 wget https://scripts.pitterpatter.io/master.sh && bash master.sh
 ```
 
