@@ -28,11 +28,9 @@ wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O 
 wget https://raw.githubusercontent.com/seanssmith/Script-Repo/main/master.sh -O master.sh && bash master.sh
 ```
 
-```bash
 <details>
   <summary>Script Output</summary>
-
-
+```bash
 Fetching list of available scripts from GitHub repository...
 
 Available scripts:
@@ -71,11 +69,9 @@ Test Script encountered errors!
 
 Script interrupted or an error occurred
 Would you like to run more scripts? (y/n)
-
-
-</details>
+n
 ```
-
+</details>
 
 ### Running with Verbose Output
 
