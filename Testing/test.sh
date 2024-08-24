@@ -36,7 +36,6 @@ source ./task_formatter.sh
 #             FUNCTIONS             #
 #-----------------------------------#
 
-
 # Function to update packages
 update_upgrade_packages() {
     sudo apt-get update > /dev/null 2>&1
@@ -45,6 +44,35 @@ update_upgrade_packages() {
     echo -e "Packaged Upgraded $CHECK_MARK"
     sudo apt-get autoremove -y > /dev/null 2>&1
     echo -e "Packages Cleaned $CHECK_MARK"
+}
+
+example_function_1() {
+    echo -e "This is example function 1. $CHECK_MARK"
+    sleep 2
+}
+
+# Example function 2
+example_function_2() {
+    echo "This is example function 2."
+    sleep 2
+    echo -e "Done $CHECK_MARK"
+    sleep 2
+}
+
+# Example function 3 with an error
+example_function_3() {
+    echo -e "This is example function 3 and it will fail. $CROSS_MARK"
+    sleep 3
+    return 1
+}
+
+ask_reconfigure() {
+  read -p "Question? (y/n): " choice
+  case "$choice" in 
+    y|Y ) return 0;;
+    n|N ) return 1;;
+    * ) echo "Invalid choice."; ask_reconfigure;;
+  esac
 }
 
 # remove artifacts
@@ -100,11 +128,25 @@ echo -e "Running as User: $USER_TO_RUN_AS\nUser Home: $USER_HOME\n"
 
 
 # Run the functions with formatted output
-if ! format_output update_upgrade_packages "Update and Upgrade Packages"; then
+if ! format_output example_function_1 "Example Function 1"; then
     cleanup_files
     success=1
 fi
 
+if ! format_output example_function_2 "Example Function 2"; then
+    cleanup_files
+    success=1
+fi
+
+if ! format_output example_function_3 "Example Function 3"; then
+    cleanup_files
+    success=1
+fi
+
+if ! format_output_with_input ask_reconfigure "Test Reconfiguring"; then
+    cleanup_files
+    success=1
+fi
 
 format_output remove_script "Cleaning up"
 
