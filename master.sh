@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Run this script with:
-# wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && sudo bash master.sh
+# wget https://scripts.pitterpatter.io/master.sh && sudo bash master.sh
 
 # Variables for URLs and script info
-this_script_url="https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh"
+this_script_url="https://scripts.pitterpatter.io/master.sh"
 this_script_name="Master Script Repo"
 formatter_url="https://raw.githubusercontent.com/pitterpatter22/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 BRANCH="main"  # or whatever branch you are using
