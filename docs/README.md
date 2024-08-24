@@ -10,6 +10,7 @@ The goal of the repo is to make is as simple as possible to run scripts that are
 
 ## Table of Contents
 
+- [Demo](#demo)
 - [Usage](#usage)
 - [Features](#features)
 - [Dependencies](#dependencies)
@@ -17,6 +18,30 @@ The goal of the repo is to make is as simple as possible to run scripts that are
 - [Cleanup](#cleanup)
 - [Contributing](#contributing)
 - [License](#license)
+
+
+## Demo
+
+```bash
+wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
+```
+
+<details>
+  <summary>Script Output Picture</summary>
+  
+![Script Output](Example.png)  
+
+</details>
+
+<details>
+  <summary>Script output Formatted</summary>
+
+[View Warp Block](https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt)
+
+</details>
+
+
+
 
 ## Usage
 
@@ -26,25 +51,6 @@ To use the `master.sh` script, run the following command:
 wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
 ```
 
-### Example
-
-```bash
-wget https://raw.githubusercontent.com/pitterpatter22/Script-Repo/main/master.sh -O master.sh && bash master.sh
-```
-
-<details>
-  <summary>Script output Formatted</summary>
-
-[View Warp Block](https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt)
-
-</details>
-
-<details>
-  <summary>Script Output Picture</summary>
-  
-![Script Output](Example.png)  
-
-</details>
 
 ### Running with Verbose Output
 
