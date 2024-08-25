@@ -35,7 +35,7 @@ Select the script called `Testing/test.sh`
 <details>
   <summary>Script Selection Picture</summary>
   
-![Script Output](https://scripts.pitterpatter.io/example_script_choice.png)  
+<img src="https://scripts.pitterpatter.io/example_script_choice.png" alt="Script Output" />
 
 </details>
 

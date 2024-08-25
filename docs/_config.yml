@@ -1,3 +1,4 @@
 theme: jekyll-theme-minimal
 title: Script Repo 
 description: Bash Script Repo Tools
+markdown: kramdown
