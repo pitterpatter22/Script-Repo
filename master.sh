@@ -27,6 +27,13 @@ log() {
     fi
 }
 
+# Function to log user input
+log_input() {
+    if [[ "$verbose" == "true" ]]; then
+        echo -e "$1" >> "$log_file"
+    fi
+}
+
 # Download and source the formatter script
 wget $formatter_url -O task_formatter.sh > /dev/null 2>&1
 source ./task_formatter.sh
@@ -137,9 +144,12 @@ run_scripts() {
         exit 1
     fi
 
+    log "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}\n$scripts"
+
     while true; do
-        log "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}\n"
+        printf "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}\n"
         select script in $scripts "Quit"; do
+            log_input "User selected: $script"
             if [ "$script" == "Quit" ]; then
                 break 2
             elif [ -n "$script" ]; then
@@ -151,8 +161,9 @@ run_scripts() {
             fi
         done
 
-        log "${COLOR_BLUE}Would you like to run more scripts? (y/n)${COLOR_RESET}\n"
+        printf "${COLOR_BLUE}Would you like to run more scripts? (y/n)${COLOR_RESET}\n"
         read -r choice
+        log_input "User input: $choice"
         if [[ "$choice" != "y" ]]; then
             break
         fi
@@ -169,6 +180,7 @@ if [[ "$1" == "-v" ]]; then
 fi
 
 print_header "$this_script_name" "$this_script_url"
+log "Verbose mode is $(if [[ "$verbose" == "true" ]]; then echo "enabled"; else echo "disabled"; fi)"
 
 success=0
 install_sudo
