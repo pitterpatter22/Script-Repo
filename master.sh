@@ -181,4 +181,7 @@ remove_script
 
 final_message "$this_script_name" $success
 log "Log file saved at: $log_file"
+if [[ "$verbose" == "true" ]]; then
+    echo -e "\nLog file saved at: $log_file"
+fi
 exit $success
