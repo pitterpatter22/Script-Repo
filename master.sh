@@ -144,10 +144,11 @@ run_scripts() {
         exit 1
     fi
 
-    log "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}\n$scripts"
+    log "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}"
+    printf "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}\n$scripts\n"
+    log "$scripts"
 
     while true; do
-        printf "${COLOR_BLUE}\nAvailable scripts:${COLOR_RESET}\n"
         select script in $scripts "Quit"; do
             log_input "User selected: $script"
             if [ "$script" == "Quit" ]; then
