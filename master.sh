@@ -11,6 +11,9 @@ BRANCH="main"  # or whatever branch you are using
 github_username="pitterpatter22"
 github_repo_name="Script-Repo"
 
+# Temporary file tracking
+tmp_files=()
+
 # Trap to clean up script on exit or interruption
 trap remove_script EXIT
 
@@ -66,7 +69,9 @@ install_jq() {
 # Clean up temporary files
 cleanup_tmp_files() {
     echo -e "${CHECK_MARK} Cleaning up temporary files..."
-    sudo rm -rf /tmp/github.com/$github_username/$github_repo_name*
+    for tmp_file in "${tmp_files[@]}"; do
+        sudo rm -rf "$tmp_file"
+    done
     echo -e "${CHECK_MARK} Temporary files cleaned."
 }
 
@@ -99,8 +104,10 @@ run_script() {
     fi
 
     mkdir -p "/tmp/$(dirname "$script_path")"
+    tmp_files+=("/tmp/$(dirname "$script_path")")
 
     http_status=$(curl -sL -w "%{http_code}" -o "/tmp/$script_path" "$url")
+    tmp_files+=("/tmp/$script_path")
 
     if [[ "$verbose" == "true" ]]; then
         echo "Request completed with status code: $http_status"
