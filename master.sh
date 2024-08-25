@@ -8,7 +8,8 @@ this_script_url="https://scripts.pitterpatter.io/master.sh"
 this_script_name="Master Script Repo"
 formatter_url="https://raw.githubusercontent.com/pitterpatter22/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 BRANCH="main"  # or whatever branch you are using
-
+github_username="pitterpatter22"
+github_repo_name="Script-Repo"
 
 # Trap to clean up script on exit or interruption
 trap remove_script EXIT
@@ -65,7 +66,7 @@ install_jq() {
 # Clean up temporary files
 cleanup_tmp_files() {
     echo -e "${CHECK_MARK} Cleaning up temporary files..."
-    sudo rm -rf /tmp/github.com/pitterpatter22/Script-Repo*
+    sudo rm -rf /tmp/github.com/$github_username/$github_repo_name*
     echo -e "${CHECK_MARK} Temporary files cleaned."
 }
 
@@ -82,8 +83,8 @@ remove_script() {
 
 # Fetch list of scripts from GitHub repository
 fetch_scripts() {
-    scripts_recursive=$(curl -s "https://api.github.com/repos/pitterpatter22/Script-Repo/git/trees/$BRANCH?recursive=1" | jq -r '.tree[] | select(.type == "blob" and (.path | type == "string") and (.path | endswith(".sh"))?) | .path')
-    scripts_root=$(curl -s "https://api.github.com/repos/pitterpatter22/Script-Repo/contents?ref=$BRANCH" | jq -r '.[] | select(.type == "file" and (.name | type == "string") and (.name | endswith(".sh"))?) | .path')
+    scripts_recursive=$(curl -s "https://api.github.com/repos/$github_username/$github_repo_name/git/trees/$BRANCH?recursive=1" | jq -r '.tree[] | select(.type == "blob" and (.path | type == "string") and (.path | endswith(".sh"))?) | .path')
+    scripts_root=$(curl -s "https://api.github.com/repos/$github_username/$github_repo_name/contents?ref=$BRANCH" | jq -r '.[] | select(.type == "file" and (.name | type == "string") and (.name | endswith(".sh"))?) | .path')
     echo -e "$scripts_root\n$scripts_recursive" | sort -u
 }
 
@@ -91,7 +92,7 @@ fetch_scripts() {
 run_script() {
     local script_path=$1
     local script_name=$(basename "$script_path")
-    local url="https://raw.githubusercontent.com/pitterpatter22/Script-Repo/$BRANCH/$script_path"
+    local url="https://raw.githubusercontent.com/$github_username/$github_repo_name/$BRANCH/$script_path"
 
     if [[ "$verbose" == "true" ]]; then
         echo "Requesting URL: $url"
