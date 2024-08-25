@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # or master, depending on your default branch
 
 jobs:
   deploy:
@@ -27,10 +27,15 @@ jobs:
         git fetch origin gh-pages
         git checkout gh-pages
 
+    - name: Set up Git user
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
     - name: Remove .nojekyll file
       run: rm .nojekyll
 
-    - name: Push changes back to gh-pages
+    - name: Commit and push changes
       run: |
         git add .
         git commit -m "Remove .nojekyll"
