@@ -49,7 +49,7 @@ Select the script called `Testing/test.sh`
 <details>
   <summary>Script output Formatted</summary>
 
-<img src="https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt" alt="View Warp Block" />
+<a href="https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt" target="_blank">View Warp Block</a>
 
 </details>
 
