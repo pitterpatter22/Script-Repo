@@ -30,7 +30,7 @@ OR
 wget https://scripts.pitterpatter.io/master.sh && bash master.sh
 ```
 
-Select the script called `Testing/test.sh`
+Select the script called `Testing/test.sh` (Shown in the pictures below)
 
 <details>
   <summary>Script Selection Picture</summary>
@@ -70,6 +70,9 @@ OR
 ```bash
 wget https://scripts.pitterpatter.io/master.sh && bash master.sh
 ```
+
+
+There is also a `master-gitlab.sh` file showing a version of the script that works with a self hosted version of gitlab.
 
 
 ### Running with Verbose Output
