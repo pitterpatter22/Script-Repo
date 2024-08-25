@@ -42,14 +42,14 @@ Select the script called `Testing/test.sh`
 <details>
   <summary>Script Output Picture</summary>
   
-![Script Output](https://scripts.pitterpatter.io/example_output.png)  
+<img src="https://scripts.pitterpatter.io/example_output.png" alt="Script Output" />
 
 </details>
 
 <details>
   <summary>Script output Formatted</summary>
 
-[View Warp Block](https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt)
+<img src="https://app.warp.dev/block/embed/evtyGCeaFfhvOIb7so4uJt" alt="View Warp Block" />
 
 </details>
 
