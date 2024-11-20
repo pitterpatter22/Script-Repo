@@ -8,7 +8,7 @@
 #             VARIABLES             #
 #-----------------------------------#
 
-this_script_url="https://raw.githubusercontent.com/pitterpatter22/Script-Repo/refs/heads/main/Bootstrap%20Scripts/ssh_portknocking.sh"
+this_script_url="https://raw.githubusercontent.com/pitterpatter22/TaskFormatter/refs/heads/main/bash_task_formatter/task_formatter.sh"
 this_script_name="SSH Port Knocking Setup"
 formatter_url="https://raw.githubusercontent.com/pitterpatter22/TaskFormatter/main/bash_task_formatter/task_formatter.sh"
 scriptname=$0
