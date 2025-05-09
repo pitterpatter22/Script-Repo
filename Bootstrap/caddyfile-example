@@ -1,0 +1,98 @@
+# Needs dns record for ask.home.arpa pointing to this IP
+# Needs dns record for internal-ca.home.arpa pointing to step ca
+{
+    servers {
+        metrics
+    }
+
+
+        email admin@home.arpa
+        acme_ca https://internal-ca.home.arpa/acme/acme/directory
+        acme_ca_root /root/.step/certs/root_ca.crt
+
+
+    on_demand_tls {
+        ask      https://ask.home.arpa/ask
+    }
+}
+
+# Add logging
+(logging) {
+    log {
+          hostnames {args[0]}
+          output file /var/log/caddy/{args[0]}.log
+        }
+}
+
+# Reverse proxy to tls server with client auth
+(reverse-proxy-client-auth-tls) {
+    tls {
+                on_demand
+                client_auth {
+                                mode                 require_and_verify
+                                trusted_ca_cert_file /root/.step/certs/root_ca.crt
+                        }
+        }
+    reverse_proxy {args[:]} {
+        transport http {
+                tls    
+                tls_insecure_skip_verify
+            }
+    }
+
+
+}
+
+# Reverse proxy to http server with client auth
+(reverse-proxy-client-auth-http) {
+    tls {
+                on_demand
+                client_auth {
+                                mode                 require_and_verify
+                                trusted_ca_cert_file  /root/.step/certs/root_ca.crt
+                        }
+        }
+    reverse_proxy {args[:]} {
+
+
+        header_up X-SSL-CERT {http.request.tls.client.certificate_der_base64}
+
+
+        header_up X-SSL-SUBJECT {http.request.tls.client.subject}
+        header_up X-SSL-ISSUER {http.request.tls.client.issuer}
+    }
+}
+
+# Reverse proxy to tls server
+(reverse-proxy-tls) {
+    tls {
+                on_demand
+        }
+    reverse_proxy {args[:]} {
+        transport http {
+                tls
+                tls_insecure_skip_verify
+            }
+    }
+}
+
+
+# Reverse proxy to http server
+(reverse-proxy-http) {
+    tls {
+                on_demand
+        }
+    reverse_proxy {args[:]} {
+    }
+}
+
+
+# Actual config for listening and responding
+https://ask.home.arpa {
+    respond /ask 200
+}
+
+
+https://apt-cache.home.arpa {
+    import reverse-proxy-client-auth-http 10.4.0.119:3142
+}
